@@ -218,6 +218,20 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
+        /* 유튜브 섹션의 구독 버튼 - 흰 배경에서 잘 보이도록 */
+        #youtube .btn-primary {
+            background: linear-gradient(135deg, #4F46E5, #06B6D4);
+            color: white;
+            border: 2px solid transparent;
+            backdrop-filter: none;
+        }
+
+        #youtube .btn-primary:hover {
+            background: linear-gradient(135deg, #3730a3, #0891b2);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+        }
+
         .btn-secondary {
             background: white;
             color: #4F46E5;
@@ -304,6 +318,26 @@
         .about-card p {
             color: #6B7280;
             line-height: 1.6;
+        }
+
+        /* 의미 단위 줄바꿈 및 정렬 개선 */
+        .hero-description,
+        .section-subtitle,
+        .about-card p,
+        .profile-intro p,
+        .lectures .section-subtitle {
+            text-align: left;
+            text-align: start;
+            word-break: keep-all; /* 단어(의미 단위) 유지 */
+            overflow-wrap: anywhere; /* 너무 긴 단어만 줄바꿈 */
+        }
+
+        @media (max-width: 768px) {
+            .section-subtitle,
+            .hero-description {
+                text-align: left;
+                text-align: start;
+            }
         }
 
         .about-card ul {
@@ -979,7 +1013,7 @@
             <h1 class="hero-title">김문정</h1>
             <p class="hero-subtitle">AI 교육 연구자 & 현직 초등교사</p>
             <p class="hero-description">
-                교육 현장에서 느끼는 크고 작은 불편함들을 AI 기술로 하나씩 해결해나가고 있습니다.<br>
+                교육 현장에서 느끼는 다양한 불편함들을 AI 기술로 하나씩 해결해나가고 있습니다.<br>
                 선생님들과 학생들이 더 나은 교육 환경에서 함께 성장할 수 있도록 함께하고 싶습니다.
             </p>
             <div class="cta-buttons">
@@ -1023,7 +1057,7 @@
     <section id="about" class="section scroll-animate">
         <h2 class="section-title">About Me</h2>
         <p class="section-subtitle">
-            현직 교사로서의 일상에서 느끼는 작은 고민들을 AI 기술과 연결하여 함께 해결해나가고 있습니다.
+            현직 교사로서의 일상에서 느끼는 여러 고민들을 AI 기술과 연결하여 함께 해결해나가고 있습니다.
         </p>
         
         <div class="about-grid">
@@ -1032,7 +1066,7 @@
                     <i class="fas fa-brain"></i>
                 </div>
                 <h3>AI 교육 연구자</h3>
-                <p>AI를 교육 현장에 어떻게 자연스럽게 녹여낼 수 있을까 고민하며, 동료 교사들과 함께 작은 실험들을 해보고 있습니다. 시행착오를 통해 배운 경험들을 다양한 기관에서 나누고 있습니다.</p>
+                <p>AI를 교육 현장에 어떻게 자연스럽게 녹여낼 수 있을까 고민하며, 동료 교사들과 함께 여러 실험과 시도를 이어가고 있습니다. 시행착오를 통해 배운 경험들을 다양한 기관에서 나누고 있습니다.</p>
                 <ul>
                     <li>경기도 AIDT 실행연수 강사</li>
                     <li>서울시교육청 AI 디지털 역량강화연수 강사</li>
@@ -1058,7 +1092,7 @@
                     <i class="fas fa-code"></i>
                 </div>
                 <h3>교육 도구 개발자</h3>
-                <p>교실에서 '이런 게 있으면 좋겠다'는 작은 바람에서 시작해서 만들어본 도구들입니다. 완벽하지 않지만 현장에서 직접 사용해보시고 조금씩 개선해나가고 있습니다.</p>
+                <p>교실에서 '이런 게 있으면 좋겠다'는 소망에서 출발해 만든 도구들입니다. 완벽하지 않지만 현장에서 직접 사용해보시고 함께 개선해나가고 있습니다.</p>
                 <ul>
                     <li>교육 플랫폼 개발 </li>
                     <li>교사 지원 도구 개발 </li>
@@ -1226,7 +1260,7 @@
     <section id="lectures" class="section lectures scroll-animate">
         <h2 class="section-title">함께하는 학습과 나눔</h2>
         <p class="section-subtitle">
-            제가 현장에서 경험한 작은 시행착오들을 선생님들, 학부모님들과 함께 나누며 더 나은 방법을 찾아가고 있습니다.
+            제가 현장에서 경험한 다양한 시행착오와 인사이트를 선생님들, 학부모님들과 함께 나누며 더 나은 방법을 찾아가고 있습니다.
         </p>
         
         <div class="lectures-grid">
@@ -1347,7 +1381,7 @@
                 
                 <div class="form-group">
                     <label for="message">메시지 *</label>
-                    <textarea id="message" name="message" rows="6" required placeholder="어떤 일을 함께 하고 싶으신지 편하게 말씀해 주세요. 작은 아이디어라도 좋습니다. 함께 고민해보겠습니다."></textarea>
+                    <textarea id="message" name="message" rows="6" required placeholder="어떤 일을 함께 하고 싶으신지 편하게 말씀해 주세요. 간단한 아이디어도 환영합니다. 함께 고민해보겠습니다."></textarea>
                 </div>
                 
                 <div style="text-align: center;">
@@ -1361,7 +1395,7 @@
 
     <!-- 푸터 -->
     <footer class="footer">
-        <p>&copy; 2025 김문정(안양 박달초) 작은 걸음이지만 AI와 함께하는 교육의 미래를 함께 만들어가요.</p>
+        <p>&copy; 2025 김문정(안양 박달초) 한 걸음씩, AI와 함께하는 교육의 미래를 만들어가요.</p>
     </footer>
 
     <script>
