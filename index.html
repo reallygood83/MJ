@@ -766,37 +766,6 @@
             transform: translateX(0) scale(1);
         }
 
-        .profile-overlay {
-            position: absolute;
-            bottom: 12px;
-            right: 12px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease 0.3s;
-            z-index: 3; /* ensure overlay above other elements */
-        }
-
-        .profile-overlay.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .profile-badge {
-            background: linear-gradient(135deg, #4F46E5, #06B6D4);
-            color: white;
-            padding: 0.75rem 1.25rem;
-            border-radius: 9999px;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            line-height: 1;
-            white-space: nowrap;
-            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
-            backdrop-filter: blur(10px);
-            z-index: 4; /* above overlay background and shadows */
-        }
 
         .profile-intro {
             flex: 1;
@@ -826,6 +795,52 @@
             line-height: 1.8;
             color: #4B5563;
             margin: 0;
+        }
+
+        /* 기본 정보 카드 스타일 */
+        .profile-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            flex: 1;
+            min-width: 320px;
+        }
+        .basic-info-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            border: 1px solid rgba(15,23,42,0.06);
+            padding: 1.25rem 1.25rem 1rem;
+        }
+        .basic-info-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 0 0 0.75rem;
+            color: #0F172A;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            row-gap: 0.5rem;
+            column-gap: 1rem;
+            align-items: start;
+        }
+        .info-item strong {
+            color: #475569;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        .info-item span {
+            color: #1F2937;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .info-grid { grid-template-columns: 1fr; }
+            .info-item strong { display: block; margin-bottom: 2px; }
         }
 
         /* 프로필 이미지 호버 효과 */
@@ -1039,16 +1054,31 @@
         <div class="profile-container scroll-animate">
             <div class="profile-image-wrapper">
                 <img src="assets/profile.jpg" alt="김문정 프로필" class="profile-image" id="profileImg" loading="lazy">
-                <div class="profile-overlay">
-                    <div class="profile-badge">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>AI 교육 연구자</span>
+            </div>
+            <div class="profile-content">
+                <div class="profile-intro">
+                    <h3>함께 성장하는 교육자</h3>
+                    <p>현장에서의 작은 경험들을 바탕으로 AI 교육의 실용적인 방법을 찾아가고 있습니다. 혼자서는 할 수 없는 일들을 동료 선생님들과 함께 하며, 학생들에게도 더 나은 학습 환경을 제공할 수 있도록 노력하고 있습니다.</p>
+                </div>
+                
+                <!-- 기본 정보 카드 -->
+                <div class="basic-info-card">
+                    <h4><i class="fas fa-user-circle"></i> 기본 정보</h4>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <strong>이름</strong>
+                            <span>김문정</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>학력</strong>
+                            <span>경인교육대학교 졸업</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>전문 분야</strong>
+                            <span>AI 교육, 에듀테크, 바이브코딩, 교육 데이터 분석</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="profile-intro">
-                <h3>함께 성장하는 교육자</h3>
-                <p>현장에서의 작은 경험들을 바탕으로 AI 교육의 실용적인 방법을 찾아가고 있습니다. 혼자서는 할 수 없는 일들을 동료 선생님들과 함께 하며, 학생들에게도 더 나은 학습 환경을 제공할 수 있도록 노력하고 있습니다.</p>
             </div>
         </div>
     </section>
@@ -1423,17 +1453,13 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const profileImg = document.getElementById('profileImg');
-                    const profileOverlay = document.querySelector('.profile-overlay');
                     const profileIntro = document.querySelector('.profile-intro');
                     
                     if (profileImg) {
                         setTimeout(() => profileImg.classList.add('animate'), 200);
                     }
-                    if (profileOverlay) {
-                        setTimeout(() => profileOverlay.classList.add('animate'), 600);
-                    }
                     if (profileIntro) {
-                        setTimeout(() => profileIntro.classList.add('animate'), 800);
+                        setTimeout(() => profileIntro.classList.add('animate'), 600);
                     }
                 }
             });
