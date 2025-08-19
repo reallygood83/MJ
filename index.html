@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김문정 - AI 교육 연구자</title>
+    <meta name="description" content="AI 교육 연구자이자 현직 교사 김문정의 디지털 명함. 함께 성장하는 교육 환경을 만들어가고 있습니다.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            overflow-x: hidden;
+        }
+
+        /* 스크롤 바 커스터마이징 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #4F46E5, #06B6D4);
+            border-radius: 4px;
+        }
+
+        /* 애니메이션 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* 헤더 및 네비게이션 */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(79, 70, 229, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4F46E5, #06B6D4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #4F46E5;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #4F46E5, #06B6D4);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* 메인 히어로 섹션 */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(-45deg, #4F46E5, #06B6D4, #EC4899, #8B5CF6);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #4F46E5;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 섹션 공통 스타일 */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #4F46E5, #06B6D4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #6B7280;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About 섹션 */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 70, 229, 0.1);
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(79, 70, 229, 0.2);
+        }
+
+        .about-card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4F46E5, #06B6D4);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .about-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1F2937;
+        }
+
+        .about-card p {
+            color: #6B7280;
+            line-height: 1.6;
+        }
+
+        .about-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .about-card ul li {
+            padding: 0.3rem 0;
+            color: #4B5563;
+        }
+
+        .about-card ul li::before {
+            content: '✓';
+            color: #10B981;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* 프로젝트 섹션 */
+        .projects {
+            background: linear-gradient(135deg, #F9FAFB, #E5E7EB);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 70, 229, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(79, 70, 229, 0.2);
+        }
+
+        .project-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #4F46E5, #06B6D4, #EC4899);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-thumbnail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .project-info {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1F2937;
+        }
+
+        .project-description {
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #4F46E5, #06B6D4);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+        }
+
+        /* 유튜브 섹션 */
+        .youtube-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .youtube-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 70, 229, 0.1);
+        }
+
+        .youtube-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(79, 70, 229, 0.2);
+        }
+
+        .youtube-embed {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .youtube-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .youtube-info {
+            display: none; /* 제목 섹션 숨기기 */
+        }
+
+        .youtube-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 70, 229, 0.1);
+        }
+        
+        .youtube-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(79, 70, 229, 0.2);
+        }
+        
+        .youtube-embed {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 20px; /* 전체 카드에 맞추어 보더 라디우스 */
+        }
+        
+        .youtube-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
+        }
+
+        /* 강의 섹션 */
+        .lectures {
+            background: linear-gradient(135deg, #F9FAFB, #E5E7EB);
+        }
+
+        .lectures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .lecture-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(79, 70, 229, 0.1);
+        }
+
+        .lecture-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(79, 70, 229, 0.2);
+        }
+
+        .lecture-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1F2937;
+        }
+
+        .lecture-card ul {
+            list-style: none;
+        }
+
+        .lecture-card ul li {
+            padding: 0.5rem 0;
+            color: #4B5563;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .lecture-card ul li::before {
+            content: '📚';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+        }
+
+        /* 연락처 섹션 */
+        .contact {
+            background: linear-gradient(135deg, #1F2937, #374151);
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+            -webkit-text-fill-color: white;
+        }
+
+        .contact .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .contact-card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4F46E5, #06B6D4);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: #06B6D4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: #67E8F9;
+        }
+
+        /* 협업 요청 폼 */
+        .collaboration-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            grid-column: 1 / -1;
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #06B6D4;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        /* 푸터 */
+        .footer {
+            background: #1F2937;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .projects-grid,
+            .youtube-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 프로필 섹션 */
+        .profile-section {
+            background: linear-gradient(135deg, #F8FAFC, #E2E8F0);
+            padding: 4rem 2rem;
+        }
+
+        .profile-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-image-wrapper {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 20px 60px rgba(79, 70, 229, 0.3);
+            border: 4px solid white;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateX(-50px) scale(0.8);
+            position: relative; /* stacking context for z-index */
+            z-index: 1; /* keep image below overlay */
+        }
+
+        .profile-image.animate {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+
+        .profile-overlay {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease 0.3s;
+            z-index: 3; /* ensure overlay above other elements */
+        }
+
+        .profile-overlay.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .profile-badge {
+            background: linear-gradient(135deg, #4F46E5, #06B6D4);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            line-height: 1;
+            white-space: nowrap;
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
+            backdrop-filter: blur(10px);
+            z-index: 4; /* above overlay background and shadows */
+        }
+
+        .profile-intro {
+            flex: 1;
+            min-width: 300px;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease 0.4s;
+        }
+
+        .profile-intro.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .profile-intro h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #4F46E5, #06B6D4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4B5563;
+            margin: 0;
+        }
+
+        /* 프로필 이미지 호버 효과 */
+        .profile-image:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 30px 80px rgba(79, 70, 229, 0.4);
+        }
+
+        .profile-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(79, 70, 229, 0.5);
+        }
+
+        /* 프로필 반응형 */
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .profile-image {
+                width: 220px;
+                height: 220px;
+            }
+
+            .profile-intro h3 {
+                font-size: 1.6rem;
+            }
+
+            .profile-intro p {
+                font-size: 1rem;
+            }
+        }
+
+        /* 스크롤 애니메이션 */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-animate.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 모바일 메뉴 토글 */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #374151;
+            cursor: pointer;
+        }
+
+        /* 스크롤 유도 화살표 */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInBounce 2s ease-out 1s forwards;
+        }
+
+        .scroll-indicator.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .scroll-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            animation: bounce 2s infinite;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-arrow:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeInBounce {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-8px);
+            }
+            60% {
+                transform: translateY(-4px);
+            }
+        }
+
+        /* 모바일에서 스크롤 화살표 크기 조정 */
+        @media (max-width: 768px) {
+            .scroll-indicator {
+                bottom: 20px;
+            }
+            
+            .scroll-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                pointer-events: none;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">김문정</div>
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">소개</a></li>
+                <li><a href="#projects">프로젝트</a></li>
+                <li><a href="#youtube">유튜브</a></li>
+                <li><a href="#lectures">강의</a></li>
+                <li><a href="#contact">연락처</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1 class="hero-title">김문정</h1>
+            <p class="hero-subtitle">AI 교육 연구자 & 현직 초등교사</p>
+            <p class="hero-description">
+                교육 현장에서 느끼는 크고 작은 불편함들을 AI 기술로 하나씩 해결해나가고 있습니다.<br>
+                선생님들과 학생들이 더 나은 교육 환경에서 함께 성장할 수 있도록 함께하고 싶습니다.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-code"></i> 프로젝트 보기
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-handshake"></i> 함께 협업하기
+                </a>
+            </div>
+        </div>
+        
+        <!-- 스크롤 유도 화살표 -->
+        <div class="scroll-indicator" id="scrollIndicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- 프로필 이미지 섹션 -->
+    <section class="profile-section section">
+        <div class="profile-container scroll-animate">
+            <div class="profile-image-wrapper">
+                <img src="assets/profile.jpg" alt="김문정 프로필" class="profile-image" id="profileImg" loading="lazy">
+                <div class="profile-overlay">
+                    <div class="profile-badge">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>AI 교육 연구자</span>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-intro">
+                <h3>함께 성장하는 교육자</h3>
+                <p>현장에서의 작은 경험들을 바탕으로 AI 교육의 실용적인 방법을 찾아가고 있습니다. 혼자서는 할 수 없는 일들을 동료 선생님들과 함께 하며, 학생들에게도 더 나은 학습 환경을 제공할 수 있도록 노력하고 있습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 소개 섹션 -->
+    <section id="about" class="section scroll-animate">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">
+            현직 교사로서의 일상에서 느끼는 작은 고민들을 AI 기술과 연결하여 함께 해결해나가고 있습니다.
+        </p>
+        
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="about-card-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>AI 교육 연구자</h3>
+                <p>AI를 교육 현장에 어떻게 자연스럽게 녹여낼 수 있을까 고민하며, 동료 교사들과 함께 작은 실험들을 해보고 있습니다. 시행착오를 통해 배운 경험들을 다양한 기관에서 나누고 있습니다.</p>
+                <ul>
+                    <li>경기도 AIDT 실행연수 강사</li>
+                    <li>서울시교육청 AI 디지털 역량강화연수 강사</li>
+                    <li>AI3(서울시교육청 senGPT 운영) AX컨설턴트</li>
+                </ul>
+            </div>
+            
+            <div class="about-card">
+                <div class="about-card-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>현직 교사</h3>
+                <p>안양 박달초등학교에서 아이들과 함께하며, 현장에서 직접 느끼는 필요를 바탕으로 교육 도구들을 만들어가고 있습니다.</p>
+                <ul>
+                    <li>사회정서교육 선도교사</li>
+                    <li>경기도교육청 국제교육원 디지털기반 글로컬교육 선도교사</li>
+                    <li>경기도교육청 현장맞춤형 연수 강사</li>
+                </ul>
+            </div>
+            
+            <div class="about-card">
+                <div class="about-card-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>교육 도구 개발자</h3>
+                <p>교실에서 '이런 게 있으면 좋겠다'는 작은 바람에서 시작해서 만들어본 도구들입니다. 완벽하지 않지만 현장에서 직접 사용해보시고 조금씩 개선해나가고 있습니다.</p>
+                <ul>
+                    <li>교육 플랫폼 개발 </li>
+                    <li>교사 지원 도구 개발 </li>
+                    <li>바이브코딩 전문가</li>
+                </ul>
+            </div>
+            
+            <div class="about-card">
+                <div class="about-card-icon">
+                    <i class="fas fa-youtube"></i>
+                </div>
+                <h3>콘텐츠 크리에이터</h3>
+                <p>유튜브 채널 '배움의 달인'을 통해 제가 배운 최신 AI 트렌드와 내용들을 정리하며 동료 선생님 및 개발자들과 나누고 있습니다.</p>
+                <ul>
+                    <li>AI 전문 유튜브 채널 배움의 달인 운영</li>
+                    <li>교사 AI 활용법 콘텐츠</li>
+                    <li>교육 데이터 분석 가이드</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 프로젝트 섹션 -->
+    <section id="projects" class="section projects scroll-animate">
+        <h2 class="section-title">함께 만들어가는 교육 도구들</h2>
+        <p class="section-subtitle">
+            교실에서 '이런 게 있으면 좋겠다'는 생각에서 시작해서 만들어본 도구들입니다. 함께 사용해보시고 개선 아이디어를 나누어주시면 더욱 좋은 도구로 발전시켜나가겠습니다.
+        </p>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-thumbnail">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">질문톡톡! 논제샘솟!</h3>
+                    <p class="project-description">AI 기반 토론교육 플랫폼. 학생들의 질문으로 토론 논제를 발굴하고 AI가 논제를 추천하는 혁신적인 교육 도구입니다.</p>
+                    <a href="https://question-talk.vercel.app/" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> 사이트 방문
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-thumbnail">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Rich Student</h3>
+                    <p class="project-description">학생 경제교육 플랫폼. 게임형 학습을 통해 학생들이 재미있게 경제 개념을 배울 수 있는 교육 플랫폼입니다.</p>
+                    <a href="https://richstudent.vercel.app/" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> 사이트 방문
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-thumbnail">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">티보드</h3>
+                    <p class="project-description">AI 기반 학급 운영 플랫폼. 학급 운영 및 교사의 업무를 종합적으로 지원하는 올인원 솔루션입니다.</p>
+                    <a href="https://teaboard.link/" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> 사이트 방문
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-thumbnail">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">SmartQ</h3>
+                    <p class="project-description">AI 지원 질문 기반 교수학습 플랫폼. 학생의 질문을 분석하여 맞춤형 학습 콘텐츠를 제공합니다.</p>
+                    <a href="https://smartq-tau.vercel.app/" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> 사이트 방문
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-thumbnail">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">티보드 Chat</h3>
+                    <p class="project-description">교사를 위한 PDF AI 챗봇 어시스턴트. 교육 문서를 업로드하면 AI가 내용을 분석하여 질의응답을 제공합니다.</p>
+                    <a href="https://teaboard-chat.vercel.app/" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> 사이트 방문
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-thumbnail">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">TeachersAI</h3>
+                    <p class="project-description">선생님들을 위한 AI 교육 도구 모음. 다양한 AI 도구들을 교육 현장에 맞게 특화한 통합 플랫폼입니다.</p>
+                    <a href="https://teachersai-sepia.vercel.app/" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> 사이트 방문
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 유튜브 섹션 -->
+    <section id="youtube" class="section scroll-animate">
+        <h2 class="section-title">YouTube 콘텐츠</h2>
+        <p class="section-subtitle">
+            AI 교육과 에듀테크 관련해서 제가 배운 내용들을 유튜브 채널 '배움의 달인'을 통해 정리하며 나누고 있습니다.<br>
+            <strong>각 영상을 클릭하여 내용을 확인해보세요.</strong>
+        </p>
+        
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <a href="https://www.youtube.com/@%EB%B0%B0%EC%9B%80%EC%9D%98%EB%8B%AC%EC%9D%B8-p5v" class="btn btn-primary" target="_blank">
+                <i class="fab fa-youtube"></i> 채널 구독하기
+            </a>
+        </div>
+        
+        <div class="youtube-grid">
+            <div class="youtube-card">
+                <div class="youtube-embed">
+                    <iframe src="https://www.youtube.com/embed/7wls9RdPZUQ"></iframe>
+                </div>
+            </div>
+            
+            <div class="youtube-card">
+                <div class="youtube-embed">
+                    <iframe src="https://www.youtube.com/embed/mSSnaIbCnYY"></iframe>
+                </div>
+            </div>
+            
+            <div class="youtube-card">
+                <div class="youtube-embed">
+                    <iframe src="https://www.youtube.com/embed/5Cb7-11pBu4"></iframe>
+                </div>
+            </div>
+            
+            <div class="youtube-card">
+                <div class="youtube-embed">
+                    <iframe src="https://www.youtube.com/embed/6OpLI_Xn1sQ"></iframe>
+                </div>
+            </div>
+            
+            <div class="youtube-card">
+                <div class="youtube-embed">
+                    <iframe src="https://www.youtube.com/embed/QSAuTqBqnYk"></iframe>
+                </div>
+            </div>
+            
+            <div class="youtube-card">
+                <div class="youtube-embed">
+                    <iframe src="https://www.youtube.com/embed/S0AJSuKIpLY"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 강의 섹션 -->
+    <section id="lectures" class="section lectures scroll-animate">
+        <h2 class="section-title">함께하는 학습과 나눔</h2>
+        <p class="section-subtitle">
+            제가 현장에서 경험한 작은 시행착오들을 선생님들, 학부모님들과 함께 나누며 더 나은 방법을 찾아가고 있습니다.
+        </p>
+        
+        <div class="lectures-grid">
+            <div class="lecture-card">
+                <h3>교사 대상 연수</h3>
+                <ul>
+                    <li>교사 AI 활용 전반적 내용</li>
+                    <li>구글 앱스크립트와 AI 접목 자동화</li>
+                    <li>노션을 활용한 학생 상담 자동화</li>
+                    <li>데이터 속에 학생이 보인다! - AI와 함께하는 교육 데이터 분석</li>
+                    <li>바이브코딩을 활용한 교육 도구 개발</li>
+                </ul>
+            </div>
+            
+            <div class="lecture-card">
+                <h3>학부모 대상 연수</h3>
+                <ul>
+                    <li>AI 시대 학생의 학습법</li>
+                    <li>변화하는 교육 환경에 맞는 학습 전략</li>
+                    <li>자녀의 디지털 리터러시 향상 방법</li>
+                    <li>AI 도구를 활용한 가정 학습 지원</li>
+                </ul>
+            </div>
+            
+            <div class="lecture-card">
+                <h3>교육기관 컨설팅</h3>
+                <ul>
+                    <li>AI 기반 교육 시스템 도입 컨설팅</li>
+                    <li>교사 역량 강화 프로그램 설계</li>
+                    <li>교육 데이터 분석 및 활용 전략</li>
+                    <li>맞춤형 교육 플랫폼 개발</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 연락처 섹션 -->
+    <section id="contact" class="section contact scroll-animate">
+        <h2 class="section-title">함께하고 싶습니다</h2>
+        <p class="section-subtitle">
+            혼자서는 할 수 없는 일들을 함께 해나갈 수 있는 다양한 협업의 기회를 기다리고 있습니다.
+        </p>
+        
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-card-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>이메일</h3>
+                <p>편하게 연락 주세요</p>
+                <a href="mailto:jpmjkim23@gmail.com">jpmjkim23@gmail.com</a>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-card-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>전화</h3>
+                <p>급한 일이 있으시면 전화로</p>
+                <a href="tel:010-7942-7655">010-7942-7655</a>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-card-icon">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <h3>YouTube</h3>
+                <p>배움의 달인 채널</p>
+                <a href="https://www.youtube.com/@%EB%B0%B0%EC%9B%80%EC%9D%98%EB%8B%AC%EC%9D%B8-p5v" target="_blank">채널 방문</a>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-card-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3>오픈채팅</h3>
+                <p>AI 교사지원 커뮤니티</p>
+                <a href="https://open.kakao.com/o/gubGYQ7g" target="_blank">참여하기</a>
+            </div>
+        </div>
+        
+        <!-- 협업 문의 폼 -->
+        <div class="collaboration-form">
+            <h3 style="text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">함께 하고 싶은 일이 있으시면 알려주세요</h3>
+            <form id="collaborationForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">이름 *</label>
+                        <input type="text" id="name" name="name" required placeholder="성함을 입력해주세요">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">이메일 *</label>
+                        <input type="email" id="email" name="email" required placeholder="이메일을 입력해주세요">
+                    </div>
+                </div>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="phone">연락처</label>
+                        <input type="tel" id="phone" name="phone" placeholder="연락처를 입력해주세요">
+                    </div>
+                    <div class="form-group">
+                        <label for="type">문의 유형 *</label>
+                        <select id="type" name="type" required>
+                            <option value="">선택해주세요</option>
+                            <option value="강의">강의 요청</option>
+                            <option value="컨설팅">컨설팅 요청</option>
+                            <option value="개발협업">개발 협업</option>
+                            <option value="기타">기타</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">제목 *</label>
+                    <input type="text" id="subject" name="subject" required placeholder="문의 제목을 입력해주세요">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">메시지 *</label>
+                    <textarea id="message" name="message" rows="6" required placeholder="어떤 일을 함께 하고 싶으신지 편하게 말씀해 주세요. 작은 아이디어라도 좋습니다. 함께 고민해보겠습니다."></textarea>
+                </div>
+                
+                <div style="text-align: center;">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> 함께하기 제안하기
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <p>&copy; 2025 김문정(안양 박달초) 작은 걸음이지만 AI와 함께하는 교육의 미래를 함께 만들어가요.</p>
+    </footer>
+
+    <script>
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // 스크롤 애니메이션 요소들 관찰
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 프로필 이미지 애니메이션
+        const profileObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const profileImg = document.getElementById('profileImg');
+                    const profileOverlay = document.querySelector('.profile-overlay');
+                    const profileIntro = document.querySelector('.profile-intro');
+                    
+                    if (profileImg) {
+                        setTimeout(() => profileImg.classList.add('animate'), 200);
+                    }
+                    if (profileOverlay) {
+                        setTimeout(() => profileOverlay.classList.add('animate'), 600);
+                    }
+                    if (profileIntro) {
+                        setTimeout(() => profileIntro.classList.add('animate'), 800);
+                    }
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        // 프로필 섹션 관찰
+        const profileSection = document.querySelector('.profile-container');
+        if (profileSection) {
+            profileObserver.observe(profileSection);
+        }
+
+        // 네��bi게이션 스크롤 이벤트 및 스크롤 화살표 제어
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            
+            // 헤더 스타일 변경
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+            
+            // 스크롤 화살표 숨기기 (스크롤 시작하면 사라짐)
+            if (scrollIndicator) {
+                if (window.scrollY > 200) {
+                    scrollIndicator.classList.add('hide');
+                } else {
+                    scrollIndicator.classList.remove('hide');
+                }
+            }
+        });
+
+        // 스크롤 화살표 클릭 이벤트
+        const scrollIndicatorElement = document.getElementById('scrollIndicator');
+        if (scrollIndicatorElement) {
+            scrollIndicatorElement.addEventListener('click', () => {
+                const profileSection = document.querySelector('.profile-section');
+                if (profileSection) {
+                    profileSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        }
+
+        // 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 모바일 메뉴 토글
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // 메뉴 링크 클릭 시 모바일 메뉴 닫기
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // 폼 제출 처리
+        document.getElementById('collaborationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // 이메일 제목과 본문 생성
+            const subject = `[협업문의] ${data.type} - ${data.subject}`;
+            const body = `
+안녕하세요. 협업 문의드립니다.
+
+▶ 문의자 정보
+- 이름: ${data.name}
+- 이메일: ${data.email}
+- 연락처: ${data.phone || '미입력'}
+
+▶ 문의 유형: ${data.type}
+
+▶ 문의 내용:
+${data.message}
+
+감사합니다.
+            `;
+            
+            // mailto 링크 생성
+            const mailtoLink = `mailto:jpmjkim23@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // 메일 앱 열기
+            window.location.href = mailtoLink;
+            
+            // 성공 메시지
+            alert('메일 앱이 열립니다. 문의해 주셔서 감사합니다!');
+        });
+
+        // 페이지 로드 시 히어로 섹션 애니메이션
+        window.addEventListener('load', () => {
+            document.querySelector('.hero-content').style.animation = 'fadeInUp 1s ease-out';
+            
+            // 프로필 이미지 오류 처리는 제거 - 정적 배지만 사용
+        });
+    </script>
+</body>
+</html>
