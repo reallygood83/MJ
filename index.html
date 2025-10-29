@@ -449,7 +449,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
         }
 
@@ -1265,79 +1265,106 @@
         </p>
 
         <div class="projects-grid">
+            <!-- 첫 번째 줄 -->
             <div class="project-card">
-                <div class="project-thumbnail">
-                    <i class="fas fa-comments"></i>
+                <div class="project-thumbnail" style="background-image: linear-gradient(rgba(79, 70, 229, 0.1), rgba(6, 182, 212, 0.1)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzRGNDZFNSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+8J+SrDwvdGV4dD48L3N2Zz4='); background-size: cover; background-position: center;">
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">질문톡톡! 논제샘솟!</h3>
-                    <p class="project-description">AI 기반 토론교육 플랫폼. 학생들의 질문으로 토론 논제를 발굴하고 AI가 논제를 추천하는 혁신적인 교육 도구입니다.</p>
-                    <a href="https://question-talk.vercel.app/" class="project-link" target="_blank">
+                    <p class="project-description">학생들이 질문을 생성하고, AI가 토론 논제를 추천하는 교육용 웹 서비스입니다.</p>
+                    <a href="https://jilmoon.com" class="project-link" target="_blank">
                         <i class="fas fa-external-link-alt"></i> 사이트 방문
                     </a>
                 </div>
             </div>
 
             <div class="project-card">
-                <div class="project-thumbnail">
-                    <i class="fas fa-coins"></i>
+                <div class="project-thumbnail" style="background: linear-gradient(135deg, #10B981, #059669); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-coins" style="font-size: 4rem; color: white;"></i>
                 </div>
                 <div class="project-info">
-                    <h3 class="project-title">Rich Student</h3>
-                    <p class="project-description">학생 경제교육 플랫폼. 게임형 학습을 통해 학생들이 재미있게 경제 개념을 배울 수 있는 교육 플랫폼입니다.</p>
-                    <a href="https://richstudent.vercel.app/" class="project-link" target="_blank">
+                    <h3 class="project-title">리치스튜던트</h3>
+                    <p class="project-description">실제 금융 시장과 똑같은 환경에서 투자, 거래, 대출을 체험하며 경제 원리를 자연스럽게 학습하는 혁신적인 교육 플랫폼입니다.</p>
+                    <a href="https://richstudent.dev" class="project-link" target="_blank">
                         <i class="fas fa-external-link-alt"></i> 사이트 방문
                     </a>
                 </div>
             </div>
 
             <div class="project-card">
-                <div class="project-thumbnail">
-                    <i class="fas fa-chalkboard-teacher"></i>
+                <div class="project-thumbnail" style="background: linear-gradient(135deg, #4F46E5, #06B6D4); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-chalkboard-teacher" style="font-size: 4rem; color: white;"></i>
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">티보드</h3>
-                    <p class="project-description">AI 기반 학급 운영 플랫폼. 학급 운영 및 교사의 업무를 종합적으로 지원하는 올인원 솔루션입니다.</p>
-                    <a href="https://teaboard.link/" class="project-link" target="_blank">
+                    <p class="project-description">AI 도구, 수업 칠판, 학생 관리까지! 선생님을 위한 올인원 디지털 교실 플랫폼입니다.</p>
+                    <a href="https://teaboard.link" class="project-link" target="_blank">
                         <i class="fas fa-external-link-alt"></i> 사이트 방문
                     </a>
                 </div>
             </div>
 
             <div class="project-card">
-                <div class="project-thumbnail">
-                    <i class="fas fa-question-circle"></i>
+                <div class="project-thumbnail" style="background: linear-gradient(135deg, #EC4899, #8B5CF6); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-heart" style="font-size: 4rem; color: white;"></i>
                 </div>
                 <div class="project-info">
-                    <h3 class="project-title">SmartQ</h3>
-                    <p class="project-description">AI 지원 질문 기반 교수학습 플랫폼. 학생의 질문을 분석하여 맞춤형 학습 콘텐츠를 제공합니다.</p>
-                    <a href="https://smartq-tau.vercel.app/" class="project-link" target="_blank">
+                    <h3 class="project-title">마인드로그</h3>
+                    <p class="project-description">사회정서학습(SEL)을 통해 학생들의 건강한 감정 발달을 지원합니다. 교사는 학급의 감정 상태를 한눈에, 학생들은 직관적인 인터페이스로 함께 만들어가는 따뜻한 학교 문화를 경험해보세요.</p>
+                    <a href="https://mindlog.dev" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> 사이트 방문
+                    </a>
+                </div>
+            </div>
+
+            <!-- 두 번째 줄 -->
+            <div class="project-card">
+                <div class="project-thumbnail" style="background: linear-gradient(135deg, #F59E0B, #EF4444); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-clipboard-list" style="font-size: 4rem; color: white;"></i>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">누가바</h3>
+                    <p class="project-description">AI 기반 학생 행동특성 및 누가기록 자동 생성 시스템. 교사의 업무 효율을 높이는 스마트한 교육 도구입니다.</p>
+                    <a href="https://nugabar.teaboard.link" class="project-link" target="_blank">
                         <i class="fas fa-external-link-alt"></i> 사이트 방문
                     </a>
                 </div>
             </div>
 
             <div class="project-card">
-                <div class="project-thumbnail">
-                    <i class="fas fa-robot"></i>
+                <div class="project-thumbnail" style="background: linear-gradient(135deg, #6366F1, #A855F7); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-presentation" style="font-size: 4rem; color: white;"></i>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">MarkSlide</h3>
+                    <p class="project-description">Transform your Markdown into beautiful presentation slides with AI-powered content generation and Chanel-inspired design.</p>
+                    <a href="https://markslide.teaboard.link" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> 사이트 방문
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-thumbnail" style="background: linear-gradient(135deg, #14B8A6, #0891B2); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-robot" style="font-size: 4rem; color: white;"></i>
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">티보드 Chat</h3>
-                    <p class="project-description">교사를 위한 PDF AI 챗봇 어시스턴트. 교육 문서를 업로드하면 AI가 내용을 분석하여 질의응답을 제공합니다.</p>
-                    <a href="https://teaboard-chat.vercel.app/" class="project-link" target="_blank">
+                    <p class="project-description">교육 자료와 대화하세요. PDF 교과서, 참고서, 논문과 실시간으로 질의응답할 수 있는 교사 전용 AI 도구입니다.</p>
+                    <a href="https://teaboard-chat.vercel.app" class="project-link" target="_blank">
                         <i class="fas fa-external-link-alt"></i> 사이트 방문
                     </a>
                 </div>
             </div>
 
             <div class="project-card">
-                <div class="project-thumbnail">
-                    <i class="fas fa-tools"></i>
+                <div class="project-thumbnail" style="background: linear-gradient(135deg, #DC2626, #EF4444); display: flex; align-items: center; justify-content: center;">
+                    <i class="fab fa-youtube" style="font-size: 4rem; color: white;"></i>
                 </div>
                 <div class="project-info">
-                    <h3 class="project-title">TeachersAI</h3>
-                    <p class="project-description">선생님들을 위한 AI 교육 도구 모음. 다양한 AI 도구들을 교육 현장에 맞게 특화한 통합 플랫폼입니다.</p>
-                    <a href="https://teachersai-sepia.vercel.app/" class="project-link" target="_blank">
+                    <h3 class="project-title">YouTube 트렌드 분석기</h3>
+                    <p class="project-description">전 세계 YouTube 트렌드를 실시간으로 분석하고 탐색할 수 있는 웹 애플리케이션. AI 기반 인사이트 분석, 키워드 검색, 국가별/카테고리별 트렌드 데이터를 제공합니다.</p>
+                    <a href="https://yt-trend.vercel.app" class="project-link" target="_blank">
                         <i class="fas fa-external-link-alt"></i> 사이트 방문
                     </a>
                 </div>
