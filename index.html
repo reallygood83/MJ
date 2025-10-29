@@ -1634,12 +1634,14 @@
         mobileToggle.addEventListener('click', toggleMenu);
         mobileOverlay.addEventListener('click', toggleMenu);
 
-        // 메뉴 링크 클릭 시 메뉴 닫기
+        // 메뉴 링크 클릭 시 메뉴 닫기 (내부 앵커 링크만)
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
+            link.addEventListener('click', (e) => {
+                // 내부 앵커 링크(#로 시작)인 경우에만 메뉴 닫기
+                if (link.getAttribute('href').startsWith('#') && navLinks.classList.contains('active')) {
                     toggleMenu();
                 }
+                // 외부 링크나 다른 페이지 링크는 그대로 동작하도록 함
             });
         });
 
